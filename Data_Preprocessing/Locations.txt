@@ -1,0 +1,22 @@
+Nuclear:
+Whitby
+Portlands
+
+Gas-fired:
+Pickering
+TA Douglas
+Portlands
+Halton Hills
+Thorold
+GTAA
+
+Hydro:
+Thorold
+Sir Adam Beck
+Decew Falls
+
+Wind:
+Grand Renewable Wind
+Niagara
+
+
