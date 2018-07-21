@@ -8,7 +8,6 @@ from sklearn import linear_model
 
 
 df = pd.read_csv("trial.csv", delimiter = ",", encoding="utf-8")
-df=df.dropna()
 
 train, test = train_test_split(df, test_size=0.2)
 
