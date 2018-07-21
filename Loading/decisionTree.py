@@ -23,8 +23,11 @@ X_train, X_test, y_train, y_test = train_test_split( X, Y, test_size = 0.3, rand
 
 
 # decision tree classifier using gini information gain
-clf_gini = DecisionTreeClassifier(criterion = "gini", random_state = 100,
-                               max_depth=3, min_samples_leaf=5)
+clf_gini = DecisionTreeClassifier(class_weight=None, criterion='entropy', max_depth=3,
+            max_features=None, max_leaf_nodes=None, min_samples_leaf=5,
+            min_samples_split=2, min_weight_fraction_leaf=0.0,
+            presort=False, random_state=100, splitter='best')
+
 clf_gini.fit(X_train, y_train)
 
 y_pred = clf_gini.predict(X_test)
