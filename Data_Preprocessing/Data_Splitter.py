@@ -2,10 +2,9 @@ import pandas as pd
 from datetime import datetime
 import csv
 
-df = pd.read_csv("Locations.csv")
+df = pd.read_csv("15to17data.csv")
 
 columns = df.columns.values.tolist()
-print(columns)
 
 with open('0to8.csv', 'w') as outcsv0to8:
     writer0to8 = csv.writer(outcsv0to8)

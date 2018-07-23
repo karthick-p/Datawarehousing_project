@@ -11,12 +11,10 @@ Thorold
 GTAA
 
 Hydro:
-Thorold
 Sir Adam Beck
 Decew Falls
 
 Wind:
 Grand Renewable Wind
-Niagara
 
 
