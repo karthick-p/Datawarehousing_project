@@ -42,3 +42,12 @@ mape = 100 * (errors / test_labels)
 # Calculate and display accuracy
 accuracy = 100 - np.mean(mape)
 print('Accuracy:', round(accuracy, 2), '%.')
+
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots()
+ax.scatter(test_labels, predictions, edgecolors=(0, 0, 0))
+ax.plot([test_labels.min(), test_labels.max()], [test_labels.min(), test_labels.max()], 'k--', lw=4)
+ax.set_xlabel('Measured')
+ax.set_ylabel('Predicted')
+plt.show()
+

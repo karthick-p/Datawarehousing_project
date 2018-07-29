@@ -30,7 +30,9 @@ train_y = train.drop(columns=['datetime','Temp','Humidity','wind_speed'])
 test_x = test.drop(columns=['Supply_MW','datetime'])
 test_y = test.drop(columns=['datetime','Temp','Humidity','wind_speed'])
 
-svclassifier = SVC(kernel='linear')  
+svclassifier = SVC(kernel='linear')
+print(train_x)
+print(train_y)
 svclassifier.fit(train_x, train_y)  
 
 
