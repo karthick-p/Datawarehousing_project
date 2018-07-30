@@ -42,7 +42,7 @@ predicted= model.predict(np_test_x)
 
 print(predicted)
 print(confusion_matrix(predicted,np_test_y))
-print(accuracy_score(np_test_y, predicted, normalize=False) * 100)
+print(accuracy_score(np_test_y, predicted, normalize=False))
 
 
 import matplotlib.pyplot as plt
