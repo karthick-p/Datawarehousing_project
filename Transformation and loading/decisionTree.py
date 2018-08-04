@@ -8,7 +8,7 @@ from sklearn import tree
 
 
 np.random.seed(0)
-df = pd.read_csv("decisionTree.csv", delimiter = ",", encoding="utf-8")
+df = pd.read_csv("train_set.csv", delimiter = ",", encoding="utf-8")
 
 
 #dataset slicing

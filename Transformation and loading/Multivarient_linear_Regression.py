@@ -9,7 +9,7 @@ from sklearn.metrics import accuracy_score
 
 
 
-df = pd.read_csv("decisionTree.csv", delimiter = ",", encoding="utf-8")
+df = pd.read_csv("train_set.csv", delimiter = ",", encoding="utf-8")
 
 train, test = train_test_split(df, test_size=0.2)
 

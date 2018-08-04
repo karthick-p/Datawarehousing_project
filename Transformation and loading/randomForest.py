@@ -5,31 +5,33 @@ from sklearn.model_selection import train_test_split
 # Import the model we are using
 from sklearn.ensemble import RandomForestRegressor
 
-features = pd.read_csv('decisionTree.csv')
-features2 = pd.read_csv('Forecastlastweek.csv')
-features2 = features2.drop('T2', axis = 1)
-features2 = features2.drop('Date', axis = 1)
+training = pd.read_csv('decisionTree.csv')
+input_data = pd.read_csv('predict_input.csv')
+input_data_bck = input_data
 
-features2 = np.array(features2)
+print(input_data)
+input_data = input_data.drop('T2', axis = 1)
+input_data = input_data.drop('Date', axis = 1)
+input_data = np.array(input_data)
 
 
 # Labels are the values we want to predict
-labels = np.array(features['sum'])
-# Remove the labels from the features
+labels = np.array(training['sum'])
+# Remove the labels from the training
 # axis 1 refers to the columns
-features= features.drop('sum', axis = 1)
+training= training.drop('sum', axis = 1)
 
 
 
 # Saving feature names for later use
-feature_list = list(features.columns)
+feature_list = list(training.columns)
 # Convert to numpy array
-features = np.array(features)
+training = np.array(training)
 
 
 
 
-train_features, test_features, train_labels, test_labels = train_test_split(features, labels, test_size = 0.25, random_state = 42)
+train_training, test_training, train_labels, test_labels = train_test_split(training, labels, test_size = 0.25, random_state = 42)
 
 
 
@@ -38,19 +40,16 @@ rf = RandomForestRegressor(n_estimators = 1000, random_state = 42)
 
 
 # Train the model on training data
-rf.fit(train_features, train_labels)
+rf.fit(train_training, train_labels)
 
 
-future_consp = rf.predict(features2)
-print(future_consp)
+
 
 # Use the forest's predict method on the test data
-predictions = rf.predict(test_features)
-
-df_1 = pd.DataFrame(future_consp.T)
+predictions = rf.predict(test_training)
 
 
-df_1.to_csv('last_week_demand.csv', sep=',', encoding='utf-8')
+
 
 # Calculate the absolute errors
 errors = abs(predictions - test_labels)
@@ -92,4 +91,19 @@ plt.xticks(x_values, feature_list, rotation='vertical')
 # Axis labels and title
 plt.ylabel('Importance'); plt.xlabel('Variable'); plt.title('Variable Importances');
 plt.show()
+
+
+
+predictions = rf.predict(input_data)
+
+print(predictions)
+
+
+df_1 = pd.DataFrame(predictions.T)
+
+
+input_data_bck = pd.concat([input_data_bck, df_1], axis=1)
+
+print(input_data_bck)
+input_data_bck.to_csv('two_week_demand.csv', sep=',', encoding='utf-8')
 
