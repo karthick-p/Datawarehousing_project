@@ -39,9 +39,7 @@ model = GaussianNB()
 # Train the model using the training sets 
 model.fit(np_train_x, np_train_y)
 predicted= model.predict(np_test_x)
-
-print(predicted)
-print(confusion_matrix(predicted,np_test_y))
+print("Accuracy score")
 print(accuracy_score(np_test_y, predicted, normalize=False))
 
 
